@@ -190,3 +190,28 @@ console.log(hero2)
 const hero3 = new Hero( "Black Widow", "Natasha Romanoff" )
 console.log(hero3)
 console.log( hero3.revealSecretIdentity() )
+
+
+//* Subclass
+
+class SuperHero extends Hero {
+
+  constructor(name, secretIdentity, superPower) {
+    super(name, secretIdentity) // moving those parameters for the parent class in order to asign them as their properties
+    this.superPower = superPower
+  }
+
+  useSuperPower( target ) {
+    return `${this.name} is using ${this.superPower} on ${target}!`
+  }
+
+}
+
+const superHero1 = new SuperHero("Spiderman", "Peter Parker", "throw web attacks")
+console.log(superHero1)
+console.log(superHero1.revealSecretIdentity())
+
+const superHero2 = new SuperHero("Wolverine", "Logan", "claw attack")
+console.log(superHero2)
+console.log( superHero2.useSuperPower( hero1.name ) )
+console.log( superHero2.useSuperPower( superHero1.name ) )
